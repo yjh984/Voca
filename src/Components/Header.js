@@ -5,8 +5,8 @@ export default function Header(){
     <div className='header'>
       <h1><Link to='/'>토익 영단어(고급)</Link></h1>
       <div className='menu'>
-        <a href='/' className='link'>단어추가</a>
-        <a href='/' className='link'>Day추가</a>
+        <Link to='/CreateWord' className='link'>단어추가</Link>
+        <Link to='/CreateDay' className='link'>Day추가</Link>
       </div>
     </div>
   )

@@ -1,0 +1,9 @@
+.day_move{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.day_prev{
+    color:blue;
+    font-weight: bold;
+}

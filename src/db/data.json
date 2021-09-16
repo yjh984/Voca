@@ -1,51 +1,113 @@
 {
-    "days": [
-      { "id": 1, "day": 1 },
-      { "id": 2, "day": 2 },
-      { "id": 3, "day": 3 }
-    ],
-    "words": [
-      {
-        "id": 1,
-        "day": 1,
-        "eng": "book",
-        "kor": "책",
-        "isDone": true
-      },
-      {
-        "id": 2,
-        "day": 1,
-        "eng": "apple",
-        "kor": "사과",
-        "isDone": false
-      },
-      {
-        "id": 3,
-        "day": 2,
-        "eng": "car",
-        "kor": "자동차",
-        "isDone": false
-      },
-      {
-        "id": 4,
-        "day": 2,
-        "eng": "pen",
-        "kor": "펜",
-        "isDone": false
-      },
-      {
-        "id": 5,
-        "day": 3,
-        "eng": "school",
-        "kor": "학교",
-        "isDone": false
-      },
-      {
-        "id": 6,
-        "day": 3,
-        "eng": "pencil",
-        "kor": "연필",
-        "isDone": false
-      }
-    ]
-  }
+  "days": [
+    {
+      "id": 1,
+      "day": 1
+    },
+    {
+      "id": 2,
+      "day": 2
+    },
+    {
+      "id": 3,
+      "day": 3
+    },
+    {
+      "day": 4,
+      "id": 4
+    }
+  ],
+  "words": [
+    {
+      "id": 1,
+      "day": 1,
+      "eng": "book",
+      "kor": "책",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "eng": "apple",
+      "kor": "사과",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "day": 2,
+      "eng": "car",
+      "kor": "자동차",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "day": 2,
+      "eng": "pen",
+      "kor": "펜",
+      "isDone": false
+    },
+    {
+      "id": 5,
+      "day": 3,
+      "eng": "school",
+      "kor": "학교",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "day": 3,
+      "eng": "pencil",
+      "kor": "연필",
+      "isDone": false
+    },
+    {
+      "eng": "hook",
+      "kor": "훅",
+      "day": "3",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "eng": "fan",
+      "kor": "선풍기",
+      "day": "2",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "eng": "note",
+      "kor": "노트",
+      "day": "1",
+      "isDone": false,
+      "id": 9
+    },
+    {
+      "eng": "dsd",
+      "kor": "sd",
+      "day": "3",
+      "isDone": false,
+      "id": 11
+    },
+    {
+      "eng": "12",
+      "kor": "32",
+      "day": "3",
+      "isDone": false,
+      "id": 12
+    },
+    {
+      "eng": "fe",
+      "kor": "23r",
+      "day": "3",
+      "isDone": false,
+      "id": 13
+    },
+    {
+      "eng": "Mouse",
+      "kor": "쥐",
+      "day": "4",
+      "isDone": false,
+      "id": 14
+    }
+  ]
+}

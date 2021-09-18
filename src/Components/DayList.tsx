@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-// import dummy from '../db/data.json';
 // import { memo } from 'react';
 import useFetch from '../hooks/useFetch';
+import Day, { IDay } from './Day';
 
 export default function DayList(){
-  // console.log(dummy);
-  const days=useFetch('http://localhost:3001/days');
-  if(days===undefined){
-    return <span>Loading....</span>
+  // const {days, res}=useFetch('http://localhost:3001/days');
+  const {data,isLoading}=useFetch('http://localhost:3001/days');
+  const days:IDay[]=data;
+  if(isLoading===true){
+    return <span>Day Loading....</span>
   }
   return (
     <>

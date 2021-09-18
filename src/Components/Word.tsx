@@ -1,9 +1,23 @@
 import { useState } from "react";
 
-export default function Word({word:w}){ //prop의 이름을 바꿀 때.. xxx:yyy
+interface IProps{
+  word: IWord;
+}
+
+export interface IWord{
+  id: number;
+  day: string;
+  eng: string;
+  kor: string;
+  isDone: boolean;
+}
+
+
+export default function Word({word:w}:IProps){ //prop의 이름을 바꿀 때.. xxx:yyy
   const [word, setWord]=useState(w);
   const [isShow, setIsShow]=useState(false);
   const [isDone, setIsDone]=useState(word.isDone);
+  const [isLoading,setIsLoading]=useState(false);
 
   function toggleShow(){
     setIsShow(!isShow);
@@ -25,16 +39,23 @@ export default function Word({word:w}){ //prop의 이름을 바꿀 때.. xxx:yyy
   }
 
   function delWord(){
+    setIsLoading(true);
     if (window.confirm('삭제하시겠습니까?')){
       fetch(`http://localhost:3001/words/${word.id}`,{
         method:'DELETE',
       }).then(res=>{
-        if(res.ok) setWord({id:0});
+        if(res.ok) {
+          setWord({...word,id:0});
+          setIsLoading(false);
+        }
       });
     };
   }
 
   if(word.id===0) return null;
+  if(isLoading){
+    return <span>Deleting....</span>
+  }
 
   return(<>
     <tr className={isDone? 'off':''}>

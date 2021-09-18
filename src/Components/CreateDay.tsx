@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { useHistory } from "react-router";
 import useFetch from "../hooks/useFetch";
+import Day, { IDay } from './Day';
 
 export default function CreateDay(){
-  const days=useFetch('http://localhost:3001/days');
+  const {data, isLoading}=useFetch('http://localhost:3001/days');
+  const days:IDay[]=data;
+  const [isDo, setIsDo]=useState(false);
   const history=useHistory();
 
   function addDay(){
+    setIsDo(true);
     fetch(`http://localhost:3001/days/`, {
       method: 'POST',
       headers:{
@@ -17,13 +22,18 @@ export default function CreateDay(){
     }).then(res=> {
       if(res.ok) {
         // alert('완료되었습니다.');
+        setIsDo(false);
         history.push(`/`);
       }}
     );
   }
 
-  if(days===undefined){
+  if(isLoading){
     return <span>Loading.....</span>
+  };
+
+  if(isDo){
+    return <span>Adding Day.....</span>
   };
   
   return(

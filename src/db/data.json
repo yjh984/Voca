@@ -96,18 +96,18 @@
       "id": 12
     },
     {
-      "eng": "fe",
-      "kor": "23r",
-      "day": "3",
-      "isDone": false,
-      "id": 13
-    },
-    {
       "eng": "Mouse",
       "kor": "쥐",
       "day": "4",
       "isDone": false,
       "id": 14
+    },
+    {
+      "eng": "",
+      "kor": "",
+      "day": "4",
+      "isDone": false,
+      "id": 17
     }
   ]
 }

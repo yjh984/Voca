@@ -1,44 +1,59 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import useFetch from '../hooks/useFetch';
+import Day, { IDay } from './Day';
 
 export default function CreateWord(){
-  const days=useFetch('http://localhost:3001/days');
+  const {data, isLoading}=useFetch('http://localhost:3001/days');
+  const days:IDay[]=data;
   const history=useHistory();
-  const [isLoading,setIsLoading]=useState(false);
+  const [isDo,setIsDo]=useState(false);
 
-  function onSubmit(e){
+  const engRef = useRef<HTMLInputElement>(null); //DOM에 접근하기 위해
+  const korRef = useRef<HTMLInputElement>(null);
+  const dayRef = useRef<HTMLSelectElement>(null);
+
+  // setIsLoading(dayLoading);
+
+  function onSubmit(e:React.FormEvent){
     e.preventDefault(); //Form tag는 저장버튼 click시 update되는데.. 이를 방지하기 위해
-    if(!isLoading){
-      setIsLoading(true);
+    setIsDo(true);
+    if(!isLoading && engRef.current && korRef.current &&
+      dayRef.current){
+      // setIsLoading(true);
+      const eng=engRef.current.value;
+      const kor=korRef.current.value;
+      const day=dayRef.current.value;
       fetch(`http://localhost:3001/words/`, {
         method: 'POST',
         headers:{
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          eng: engRef.current.value,
-          kor: korRef.current.value,
-          day: dayRef.current.value,
+          eng,
+          kor,
+          day,
           isDone: false,
         }),
       }).then(res=> {
         if(res.ok) {
           // alert('완료되었습니다.');
-          setIsLoading(false);
-          history.push(`/day/${dayRef.current.value}`);
+          setIsDo(false);
+          history.push(`/day/${day}`);
         }}
       );
     }
   }
 
-  const engRef = useRef(null); //DOM에 접근하기 위해
-  const korRef = useRef(null);
-  const dayRef = useRef(null);
 
-  if(days===undefined){
+  if(isLoading){
     return <span>Loading.....</span>
   };
+
+  if(isDo){
+    return <span>Adding a word.....</span>
+  };
+  
 
   return(
     <form onSubmit={onSubmit}>
